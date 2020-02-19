@@ -7,7 +7,7 @@ run_test() {
     echo "Running application"
     cd redpen-cli/target;
     tar zxvf redpen-cli-*-assembled.tar.gz;
-    cd redpen-cli-*
+    cd redpen-cli-1.10.3-SNAPSHOT
     bin/redpen -c conf/redpen-conf-en.xml -l 100 sample-doc/en/sampledoc-en.txt
     cd ../../..
 
