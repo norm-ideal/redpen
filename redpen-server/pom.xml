@@ -3,7 +3,7 @@
     <parent>
         <artifactId>redpen</artifactId>
         <groupId>cc.redpen</groupId>
-        <version>1.10.3-SNAPSHOT</version>
+        <version>1.10.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -48,7 +48,7 @@
         <url>https://github.com/redpen-cc/redpen</url>
         <connection>scm:git:https://github.com/redpen-cc/redpen.git</connection>
         <developerConnection>scm:git:https://github.com/redpen-cc/redpen.git</developerConnection>
-        <tag>redpen-1.10.2</tag>
+        <tag>redpen-1.10.3</tag>
     </scm>
 
     <build>
@@ -176,7 +176,7 @@
         <dependency>
             <groupId>cc.redpen</groupId>
             <artifactId>redpen-core</artifactId>
-            <version>1.10.3-SNAPSHOT</version>
+            <version>1.10.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.wink</groupId>
@@ -244,12 +244,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>3.1.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

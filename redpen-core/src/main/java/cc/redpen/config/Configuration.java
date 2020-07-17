@@ -52,7 +52,7 @@ public class Configuration implements Serializable, Cloneable {
      * @return default supported languages and variants that can be used with {@link #builder(String)}
      */
     public static List<String> getDefaultConfigKeys() {
-        return asList("en", "ja", "ja.hankaku", "ja.zenkaku2", "ru");
+        return asList("en", "ja", "ja.hankaku", "ja.zenkaku2", "ru", "ko");
     }
 
     Configuration(File base, SymbolTable symbolTable, List<ValidatorConfiguration> validatorConfigs, String lang, boolean secure) {
@@ -66,7 +66,11 @@ public class Configuration implements Serializable, Cloneable {
     }
 
     private void initTokenizer() {
-        this.tokenizer = lang.equals("ja") ? new NeologdJapaneseTokenizer() : new WhiteSpaceTokenizer();
+        if (lang.equals("ja")) {
+            this.tokenizer = new NeologdJapaneseTokenizer();
+        } else {
+            this.tokenizer = new WhiteSpaceTokenizer();
+        }
     }
 
     /**
