@@ -45,7 +45,6 @@ public class DoubleNegativeValidator extends Validator {
         // validate with expressions (phrase)
         for (ExpressionRule rule : invalidExpressions) {
             if (rule.match(sentence.getTokens())) {
-		String ruleSurface = "";
                 addLocalizedError(sentence, rule.toSurface() );
                 return;
             }
@@ -53,14 +52,16 @@ public class DoubleNegativeValidator extends Validator {
 
         // validate with set of negative words
         int count = 0;
-	String errorPart = "";
+        String errorPart = "";
         List<TokenElement> tokens = sentence.getTokens();
         for (TokenElement token : tokens) {
-            for (String negativeWord : negativeWords) {
-                if (token.getSurface().toLowerCase().equals(negativeWord)) {
-                    count++;
-		    errorPart += " " + token.getSurface().toLowerCase();
-                }
+            if (negativeWords.contains(token.getSurface().toLowerCase())) {
+                count++;
+                errorPart += " " + token.getSurface().toLowerCase();
+            }
+            if (count >= 2) {
+                addLocalizedError(sentence, errorPart); 
+                return;
             }
         }
         if (count >= 2) {
